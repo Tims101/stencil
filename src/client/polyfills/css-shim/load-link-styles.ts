@@ -19,7 +19,9 @@ export function loadDocumentLinks(doc: Document, globalScopes: CSSScope[]) {
 export function loadDocumentStyles(doc: Document, globalScopes: CSSScope[]) {
   const styleElms = doc.querySelectorAll('style:not([data-styles])') as NodeListOf<HTMLStyleElement>;
   for (let i = 0; i < styleElms.length; i++) {
-    addGlobalStyle(globalScopes, styleElms[i]);
+    if (styleElms[i].innerHTML) {
+      addGlobalStyle(globalScopes, styleElms[i]);
+    }
   }
 }
 
