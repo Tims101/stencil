@@ -39,7 +39,7 @@ export function parse(text: string) {
  * @return {string}
  */
 function clean(cssText: string) {
-  return cssText.replace(RX.comments, '').replace(RX.port, '');
+  return (cssText || '').replace(RX.comments, '').replace(RX.port, '');
 }
 
 // super simple {...} lexer that returns a node tree
